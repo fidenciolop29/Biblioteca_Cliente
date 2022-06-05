@@ -34,6 +34,7 @@ public class NuevoUsuario extends javax.swing.JFrame {
         agregarUser = new javax.swing.JButton();
         labNomUsuario = new javax.swing.JLabel();
         labContra = new javax.swing.JLabel();
+        Regresar2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -55,6 +56,10 @@ public class NuevoUsuario extends javax.swing.JFrame {
         labContra.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         labContra.setText("Contraseña");
 
+        Regresar2.setBackground(new java.awt.Color(0, 204, 204));
+        Regresar2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Logo_BibliotecaListo2.png"))); // NOI18N
+        Regresar2.setToolTipText("Regresar al inicio");
+
         javax.swing.GroupLayout panelAgregarULayout = new javax.swing.GroupLayout(panelAgregarU);
         panelAgregarU.setLayout(panelAgregarULayout);
         panelAgregarULayout.setHorizontalGroup(
@@ -64,7 +69,7 @@ public class NuevoUsuario extends javax.swing.JFrame {
                 .addComponent(titulo1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(titulo2)
-                .addContainerGap(86, Short.MAX_VALUE))
+                .addContainerGap(65, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelAgregarULayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(labNomUsuario)
@@ -78,7 +83,9 @@ public class NuevoUsuario extends javax.swing.JFrame {
             .addGroup(panelAgregarULayout.createSequentialGroup()
                 .addGap(142, 142, 142)
                 .addComponent(agregarUser, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(Regresar2)
+                .addContainerGap())
             .addGroup(panelAgregarULayout.createSequentialGroup()
                 .addGap(162, 162, 162)
                 .addComponent(labContra)
@@ -91,17 +98,23 @@ public class NuevoUsuario extends javax.swing.JFrame {
                 .addGroup(panelAgregarULayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(titulo1, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(titulo2))
-                .addGap(18, 18, 18)
-                .addComponent(labNomUsuario)
-                .addGap(18, 18, 18)
-                .addComponent(txfUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(labContra)
-                .addGap(22, 22, 22)
-                .addComponent(txfContra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(47, 47, 47)
-                .addComponent(agregarUser)
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addGroup(panelAgregarULayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelAgregarULayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(labNomUsuario)
+                        .addGap(18, 18, 18)
+                        .addComponent(txfUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(labContra)
+                        .addGap(22, 22, 22)
+                        .addComponent(txfContra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(47, 47, 47)
+                        .addComponent(agregarUser)
+                        .addContainerGap(16, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelAgregarULayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(Regresar2)
+                        .addContainerGap())))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -157,6 +170,7 @@ public class NuevoUsuario extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JButton Regresar2;
     public javax.swing.JButton agregarUser;
     public javax.swing.JLabel labContra;
     public javax.swing.JLabel labNomUsuario;

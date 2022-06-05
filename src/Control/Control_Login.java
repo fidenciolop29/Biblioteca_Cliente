@@ -3,7 +3,10 @@ package Control;
 
 import Modelo.ConsultasUsers;
 import Modelo.Usuario;
+import Vista.AgregarLibro;
+import Vista.Informacion;
 import Vista.LogIn_Biblioteca;
+import Vista.Menu_Principal;
 import Vista.NuevoUsuario;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -15,6 +18,9 @@ public class Control_Login implements ActionListener {
    private  NuevoUsuario nusu;
    private  Usuario user;
    private  ConsultasUsers consulta;
+   private Menu_Principal menu;
+   private Informacion info;
+   private AgregarLibro agg;
    
     public Control_Login(LogIn_Biblioteca login,Usuario user,NuevoUsuario usu,ConsultasUsers consulta){
         this.login=login;
@@ -24,6 +30,10 @@ public class Control_Login implements ActionListener {
         this.nusu=usu;
         this.nusu.agregarUser.addActionListener(this);
         this.consulta=consulta;
+        this.menu.Información.addActionListener(this);
+        this.menu.Agregar_Libro.addActionListener(this);
+        this.menu.Nuevo_Usuario.addActionListener(this);
+        
        }
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -58,8 +68,32 @@ public class Control_Login implements ActionListener {
                 limpiar2();
             }
        }
+         if(e.getSource()==menu.Información){
+            info.setVisible(true);
+            login.setVisible(false);
+         }
+         if(e.getSource()==menu.Nuevo_Usuario){
+            nusu.setVisible(true);
+            login.setVisible(false);
+         }
+         if(e.getSource()==menu.Agregar_Libro){
+            agg.setVisible(true);
+            login.setVisible(false);
+         }         
+         if(e.getSource()==info.Regresar1){
+            info.setVisible(false);
+            login.setVisible(true);      
+             }
+         if(e.getSource()==nusu.Regresar2){
+            nusu.setVisible(false);
+            login.setVisible(true);      
+             }
+         if(e.getSource()==agg.Regresar3){
+            agg.setVisible(false);
+            login.setVisible(true);      
+             }
     }
-    
+  
   
     public void iniciar(){
         login.setVisible(true);

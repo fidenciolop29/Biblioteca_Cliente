@@ -32,7 +32,7 @@ public class AgregarLibro extends javax.swing.JFrame {
         txfNomLibro = new javax.swing.JTextField();
         agregarlibro = new javax.swing.JButton();
         labNomLibro = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        Regresar3 = new javax.swing.JButton();
         txfNomAutor = new javax.swing.JTextField();
         labNomAutor = new javax.swing.JLabel();
         txfEditorial = new javax.swing.JTextField();
@@ -66,9 +66,9 @@ public class AgregarLibro extends javax.swing.JFrame {
         labNomLibro.setForeground(new java.awt.Color(0, 204, 204));
         labNomLibro.setText("Libro:");
 
-        jButton1.setBackground(new java.awt.Color(0, 204, 204));
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Logo_BibliotecaListo2.png"))); // NOI18N
-        jButton1.setToolTipText("Regresar al inicio");
+        Regresar3.setBackground(new java.awt.Color(0, 204, 204));
+        Regresar3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Logo_BibliotecaListo2.png"))); // NOI18N
+        Regresar3.setToolTipText("Regresar al inicio");
 
         txfNomAutor.setToolTipText("Nombre del autor");
 
@@ -114,7 +114,7 @@ public class AgregarLibro extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(titulo2)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
-                                .addComponent(jButton1))
+                                .addComponent(Regresar3))
                             .addGroup(panelAgregarLLayout.createSequentialGroup()
                                 .addGroup(panelAgregarLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(panelAgregarLLayout.createSequentialGroup()
@@ -151,7 +151,7 @@ public class AgregarLibro extends javax.swing.JFrame {
                         .addGap(40, 40, 40))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelAgregarLLayout.createSequentialGroup()
                         .addGroup(panelAgregarLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton1)
+                            .addComponent(Regresar3)
                             .addComponent(titulo2))
                         .addGap(31, 31, 31)))
                 .addGroup(panelAgregarLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -231,8 +231,8 @@ public class AgregarLibro extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JButton Regresar3;
     public javax.swing.JButton agregarlibro;
-    public javax.swing.JButton jButton1;
     public javax.swing.JLabel labCat;
     public javax.swing.JLabel labClave;
     public javax.swing.JLabel labEditorial;
