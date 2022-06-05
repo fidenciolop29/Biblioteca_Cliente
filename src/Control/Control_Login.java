@@ -14,17 +14,15 @@ public class Control_Login implements ActionListener {
    private  LogIn_Biblioteca login;
    private  NuevoUsuario nusu;
    private  Usuario user;
-   private  ControlNuevoUsuario nusuc;
    private  ConsultasUsers consulta;
    
-    public Control_Login(LogIn_Biblioteca login,Usuario user,NuevoUsuario usu,ControlNuevoUsuario nusuc,ConsultasUsers consulta){
+    public Control_Login(LogIn_Biblioteca login,Usuario user,NuevoUsuario usu,ConsultasUsers consulta){
         this.login=login;
         this.login.ingresar_login.addActionListener(this);
         this.user=user;
         this.login.crearUsuario.addActionListener(this);
         this.nusu=usu;
         this.nusu.agregarUser.addActionListener(this);
-        this.nusuc=nusuc;
         this.consulta=consulta;
        }
     @Override
@@ -42,20 +40,41 @@ public class Control_Login implements ActionListener {
         }
         
         if(e.getSource()==login.crearUsuario){
-            nusuc.iniciar();
+            iniciar2();
             login.setVisible(false);
         }
+         if(e.getSource()==nusu.agregarUser){
+           user.setUser(nusu.txfUsuario.getText());
+           user.setPassword(nusu.txfContra.getText());
+           if(consulta.registrar(user))
+            {
+                JOptionPane.showMessageDialog(null, "registro guardado");
+                limpiar2();
+                iniciar2();
+                nusu.setVisible(false);
+            }
+            else{
+                JOptionPane.showMessageDialog(null, "Error al guardar");
+                limpiar2();
+            }
+       }
     }
-    
     
   
     public void iniciar(){
         login.setVisible(true);
         login.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
-    
+    public void iniciar2(){
+        nusu.setVisible(true);
+        nusu.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
     public void limpiar(){
         login.txfContra_login.setText("");
         login.txfUsuario_login.setText("");
+    }
+     public void limpiar2(){
+        nusu.txfContra.setText("");
+        nusu.txfUsuario.setText("");
     }
 }
