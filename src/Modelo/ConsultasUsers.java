@@ -3,6 +3,7 @@ package Modelo;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class ConsultasUsers extends Conexion{
@@ -10,11 +11,12 @@ public class ConsultasUsers extends Conexion{
         PreparedStatement ps = null;
         Connection con = getConexion();
 
-        String sql = "INSERT INTO usuario(nombreUsuario, contraUsuario) VALUES(?,?)";
+        String sql = "INSERT INTO usuario(idUsuario, nombreUsuario, contraUsuario) VALUES(?,?)";
 
         try {
 
             ps = con.prepareStatement(sql);
+            ps.setString(1, String.valueOf(user.getId()));
             ps.setString(2, user.getUser());
             ps.setString(3, user.getPassword());
             ps.execute();
@@ -31,6 +33,39 @@ public class ConsultasUsers extends Conexion{
             }
         }
     }
-    
+    ////////////////////////////////////////////////////////////////////
+     public boolean buscar(Usuario user) {
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        Connection con = getConexion();
+
+        String sql = "SELECT * FROM usuario WHERE idUsuario=? ";
+
+        try {
+
+            ps = con.prepareStatement(sql);
+            ps.setString(1, String.valueOf(user.getId()));
+            rs = ps.executeQuery();
+            
+            if(rs.next())
+            {
+                user.setId(Integer.parseInt(rs.getString("idUsuario")));
+                user.setUser(rs.getString("nombreUsuario"));
+                user.setPassword(rs.getString("contraUsuario"));
+                return true;
+            }            
+            return false;
+
+        } catch (SQLException e) {
+            System.err.println(e);
+            return false;
+        } finally {
+            try {
+                con.close();
+            } catch (SQLException e) {
+                System.out.println(e);
+            }
+        }
+    }
     
 }
