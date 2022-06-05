@@ -22,19 +22,24 @@ public class Control_Login implements ActionListener {
    private Informacion info;
    private AgregarLibro agg;
    
-    public Control_Login(LogIn_Biblioteca login,Usuario user,NuevoUsuario usu,ConsultasUsers consulta){
+    public Control_Login(LogIn_Biblioteca login,Usuario user,NuevoUsuario usu,ConsultasUsers consulta,Menu_Principal menu,Informacion info,AgregarLibro agg){
         this.login=login;
         this.login.ingresar_login.addActionListener(this);
         this.user=user;
         this.login.crearUsuario.addActionListener(this);
         this.nusu=usu;
         this.nusu.agregarUser.addActionListener(this);
+        this.nusu.Regresar2.addActionListener(this);
         this.consulta=consulta;
         this.menu.Información.addActionListener(this);
         this.menu.Agregar_Libro.addActionListener(this);
         this.menu.Nuevo_Usuario.addActionListener(this);
+        this.info.Regresar1.addActionListener(this);
+        this.agg.Regresar3.addActionListener(this);
+        this.agg.agregarlibro.addActionListener(this);
         
-       }
+        
+    }
     @Override
     public void actionPerformed(ActionEvent e) {
        
@@ -68,6 +73,7 @@ public class Control_Login implements ActionListener {
                 limpiar2();
             }
        }
+         //redireccion del menu
          if(e.getSource()==menu.Información){
             info.setVisible(true);
             login.setVisible(false);
@@ -80,6 +86,7 @@ public class Control_Login implements ActionListener {
             agg.setVisible(true);
             login.setVisible(false);
          }         
+         //controles de regreso de las ventanas
          if(e.getSource()==info.Regresar1){
             info.setVisible(false);
             login.setVisible(true);      
