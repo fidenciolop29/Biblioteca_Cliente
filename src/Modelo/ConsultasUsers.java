@@ -39,17 +39,17 @@ public class ConsultasUsers extends Conexion{
         ResultSet rs = null;
         Connection con = getConexion();
 
-        String sql = "SELECT * FROM usuario WHERE idUsuario=? ";
+        String sql = "SELECT * FROM usuario WHERE (nombreUsuario=?) AND (contraUsuario=?) ";
 
         try {
 
             ps = con.prepareStatement(sql);
-            ps.setString(1, String.valueOf(user.getId()));
+            ps.setString(2, user.getUser());
+            ps.setString(3, user.getPassword());
             rs = ps.executeQuery();
             
             if(rs.next())
             {
-                user.setId(Integer.parseInt(rs.getString("idUsuario")));
                 user.setUser(rs.getString("nombreUsuario"));
                 user.setPassword(rs.getString("contraUsuario"));
                 return true;

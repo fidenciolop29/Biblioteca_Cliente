@@ -15,7 +15,7 @@ public class Control_Login implements ActionListener {
    private  NuevoUsuario nusu;
    private  Usuario user;
    private  ControlNuevoUsuario nusuc;
-   private ConsultasUsers consulta;
+   private  ConsultasUsers consulta;
    
     public Control_Login(LogIn_Biblioteca login,Usuario user,NuevoUsuario usu,ControlNuevoUsuario nusuc,ConsultasUsers consulta){
         this.login=login;
@@ -32,19 +32,18 @@ public class Control_Login implements ActionListener {
        
          if(e.getSource()==login.ingresar_login){
             user.setUser(login.txfUsuario_login.getText());
-            
+            user.setPassword(login.txfContra_login.getText());
             if(consulta.buscar(user)){
+                
                    //inicio de principal
             }else{
                 JOptionPane.showMessageDialog(null,"Este usuario no existe");
             }
-             
-         
         }
-        
         
         if(e.getSource()==login.crearUsuario){
             nusuc.iniciar();
+            login.setVisible(false);
         }
     }
     
@@ -55,4 +54,8 @@ public class Control_Login implements ActionListener {
         login.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
     
+    public void limpiar(){
+        login.txfContra_login.setText("");
+        login.txfUsuario_login.setText("");
+    }
 }
