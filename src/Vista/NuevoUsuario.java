@@ -166,4 +166,6 @@ public class NuevoUsuario extends javax.swing.JFrame {
     public javax.swing.JTextField txfContra;
     public javax.swing.JTextField txfUsuario;
     // End of variables declaration//GEN-END:variables
+
+
 }
