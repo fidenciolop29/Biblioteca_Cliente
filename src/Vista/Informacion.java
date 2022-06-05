@@ -28,7 +28,7 @@ public class Informacion extends javax.swing.JFrame {
 
         jPanelinfo = new javax.swing.JPanel();
         titulo2 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        Regresar1 = new javax.swing.JButton();
         titulo1 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -43,9 +43,9 @@ public class Informacion extends javax.swing.JFrame {
         titulo2.setForeground(new java.awt.Color(255, 255, 255));
         titulo2.setText("de leer");
 
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Logo_BibliotecaListo2.png"))); // NOI18N
-        jButton1.setToolTipText("Regresar al inicio");
+        Regresar1.setForeground(new java.awt.Color(255, 255, 255));
+        Regresar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Logo_BibliotecaListo2.png"))); // NOI18N
+        Regresar1.setToolTipText("Regresar al inicio");
 
         titulo1.setFont(new java.awt.Font("Brand New Retro", 0, 60)); // NOI18N
         titulo1.setForeground(new java.awt.Color(255, 255, 255));
@@ -75,7 +75,7 @@ public class Informacion extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(titulo2)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton1))
+                        .addComponent(Regresar1))
                     .addGroup(jPanelinfoLayout.createSequentialGroup()
                         .addGap(17, 17, 17)
                         .addGroup(jPanelinfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -96,7 +96,7 @@ public class Informacion extends javax.swing.JFrame {
                     .addGroup(jPanelinfoLayout.createSequentialGroup()
                         .addComponent(titulo1, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(9, 9, 9))
-                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(Regresar1, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(titulo2, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addGap(28, 28, 28)
                 .addComponent(jLabel1)
@@ -160,7 +160,7 @@ public class Informacion extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton jButton1;
+    public javax.swing.JButton Regresar1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
