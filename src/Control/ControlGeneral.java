@@ -12,6 +12,10 @@ import Vista.Menu_Principal;
 import Vista.NuevoUsuario;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.net.Socket;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -25,6 +29,9 @@ public class ControlGeneral implements ActionListener {
    private  AgregarLibro agg;
    private  ConsultasLibros consultalibro;
    private  Libro libro;
+   Socket socket = null;
+   BufferedReader lee =null;
+   PrintWriter escribe = null;
    
     public ControlGeneral(LogIn login,Usuario user,NuevoUsuario usu,ConsultasUsers consulta, Menu_Principal menu, Informacion info, AgregarLibro agg,ConsultasLibros consultalibro, Libro libro){
         this.login=login;
@@ -118,16 +125,17 @@ public class ControlGeneral implements ActionListener {
             menu.setVisible(true);      
              }
          //Mensajes
-         if(e.getSource()==menu.Conectar){
+            if(e.getSource()==menu.Conectar){
             habilitar();
-                if("".equals(menu.Mensaje.getText())){ //por si el textField esta vacio
-                JOptionPane.showMessageDialog(null, "Aun no ingresa ningun mensaje");}
-            else{    
-                 //mandar mensaje
-                 menu.Mensaje.setText("");//limpia el txf despues de enviar
-                } 
-             }
-         
+                 Thread inicio = new Thread(new Runnable(){
+                  public void run(){
+                      try{
+                     socket=new Socket("LocalHost",1000);
+                     leer();
+                     escribir();
+                  }catch(Exception ex){
+                    ex.printStackTrace();}}
+        });
          if(e.getSource()==agg.agregarlibro){
              libro.setId(Integer.parseInt(agg.txfId.getText()));
              libro.setTitulo(agg.txfNomLibro.getText());
@@ -155,7 +163,7 @@ public class ControlGeneral implements ActionListener {
         }
     }
     
-  
+    }
   
     public void iniciar(){
         login.setVisible(true);
@@ -179,5 +187,40 @@ public class ControlGeneral implements ActionListener {
         agg.txfEditorial.setText("");
         agg.txfCat.setText("");
         agg.txfCantidad.setText("");
+    }
+    
+    public void escribir(){
+        Thread escritorHilo =new Thread (new Runnable(){
+        public void run(){ 
+        try{
+        escribe =new PrintWriter(socket.getOutputStream(),true);
+        menu.enviar.addActionListener(new ActionListener(){
+        public void actionPerformed(ActionEvent e){
+        String envio = null;
+        envio.equals(menu.Mensaje.getText());
+        escribe.println(envio);
+        menu.Mensaje.setText("");
+        } 
+        });}
+        catch(Exception ex){
+        ex.printStackTrace();}}
+        });
+       escritorHilo.start();
+    }
+    public void leer(){
+        Thread lectorHilo =new Thread (new Runnable(){
+        public void run(){    
+        try{
+        lee =new BufferedReader(new InputStreamReader(socket.getInputStream()));
+        while (true){
+         String recibido=lee.readLine();
+         menu.jTADialogo.append("Servidor:" + recibido);
+        }
+        }
+        catch(Exception ex){
+        ex.printStackTrace();}
+        }
+        });
+        lectorHilo.start();
     }
 }

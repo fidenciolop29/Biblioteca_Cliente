@@ -213,6 +213,6 @@ public class Menu_Principal extends javax.swing.JFrame {
     public javax.swing.JButton enviar;
     public javax.swing.JPanel escritorio;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTADialogo;
+    public javax.swing.JTextArea jTADialogo;
     // End of variables declaration//GEN-END:variables
 }
