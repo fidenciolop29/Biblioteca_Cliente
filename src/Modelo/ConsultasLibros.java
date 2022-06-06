@@ -41,7 +41,7 @@ public class ConsultasLibros extends Conexion {
         PreparedStatement ps = null;
         Connection con = getConexion();
 
-        String sql = "UPDATE libro SET nombreLibro=?, autorLibro=?, editorialLibro=?, categLibro=?"
+        String sql = "UPDATE libro SET nombreLibro=?, autorLibro=?, editorialLibro=?, categLibro=?, cantidadLibro=?"
                 + " WHERE codigoLibro=? ";
 
         try {
@@ -51,7 +51,8 @@ public class ConsultasLibros extends Conexion {
             ps.setString(2, libro.getAutor());
             ps.setString(3, libro.getEditorial());
             ps.setString(4, libro.getCategoria());
-            ps.setInt(5, libro.getId());
+            ps.setInt(5, libro.getCantidad());
+            ps.setInt(6, libro.getId());
             ps.execute();
             return true;
 
@@ -112,6 +113,7 @@ public class ConsultasLibros extends Conexion {
                 libro.setAutor(rs.getString("autorLibro"));
                 libro.setEditorial(rs.getString("editorialLibro"));
                 libro.setCategoria(rs.getString("categLibro"));
+                libro.setCantidad(Integer.parseInt(rs.getString("cantidadLibro")));
                 return true;
             }            
             return false;

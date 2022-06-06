@@ -88,6 +88,7 @@ public class ControlGeneral implements ActionListener {
             nusu.setVisible(true);
             login.setVisible(false);
         }
+        
          if(e.getSource()==nusu.agregarUser){
            user.setUser(nusu.txfUsuario.getText());
            user.setPassword(nusu.txfContra.getText());
@@ -118,16 +119,20 @@ public class ControlGeneral implements ActionListener {
             info.setVisible(false);
             menu.setVisible(true);      
              }
+         
          if(e.getSource()==nusu.Regresar2){
             nusu.setVisible(false);
             login.setVisible(true);
              }
+         
          if(e.getSource()==agg.Regresar3){
             agg.setVisible(false);
             menu.setVisible(true);      
              }
+         
          //Mensajes
             if(e.getSource()==menu.Conectar){
+            
                  Thread inicio = new Thread(new Runnable(){
                   public void run(){
                       try{
@@ -137,6 +142,7 @@ public class ControlGeneral implements ActionListener {
                   }catch(Exception ex){
                     ex.printStackTrace();}}
         });}
+            
          if(e.getSource()==agg.agregarlibro){
              libro.setId(Integer.parseInt(agg.txfId.getText()));
              libro.setTitulo(agg.txfNomLibro.getText());
@@ -152,6 +158,7 @@ public class ControlGeneral implements ActionListener {
                   limpiar3();
              }
          }
+         
         if(e.getSource()==agg.buscar){
              libro.setId(Integer.parseInt(agg.txfId.getText()));
             if(consultalibro.buscar(libro)){
@@ -159,8 +166,39 @@ public class ControlGeneral implements ActionListener {
                 agg.txfNomLibro.setText(libro.getTitulo());
                 agg.txfNomAutor.setText(libro.getAutor());
                 agg.txfEditorial.setText(libro.getEditorial());
-                
+                agg.txfCantidad.setText(String.valueOf(libro.getCantidad()));
+            }else{
+                JOptionPane.showMessageDialog(null,"No existe libro con este codigo");
+                limpiar3();
             }
+        }
+        
+        
+        if(e.getSource()==agg.actualizar){
+             libro.setId(Integer.parseInt(agg.txfId.getText()));
+             libro.setTitulo(agg.txfNomLibro.getText());
+             libro.setAutor(agg.txfNomAutor.getText());
+             libro.setEditorial(agg.txfEditorial.getText());
+             libro.setCategoria(agg.txfCat.getText());
+             libro.setCantidad(Integer.parseInt(agg.txfCantidad.getText()));
+             if(consultalibro.modificar(libro)){
+                 JOptionPane.showMessageDialog(null, "registro modificado");
+                 limpiar3();
+             }else{
+                 JOptionPane.showMessageDialog(null, "Error al modificar");
+                  limpiar3();
+             }
+        }
+        
+        if(e.getSource()==agg.eliminar){
+             libro.setId(Integer.parseInt(agg.txfId.getText()));
+             if(consultalibro.eliminar(libro)){
+                JOptionPane.showMessageDialog(null, "Registro eliminado");
+                limpiar3();
+             }else{
+                JOptionPane.showMessageDialog(null, "Error al eliminar");
+                limpiar3();
+             }
         }
     }
 
