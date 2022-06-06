@@ -1,8 +1,10 @@
 
 package Principal;
 
-import Control.Control_Login;
+import Control.ControlGeneral;
+import Modelo.ConsultasLibros;
 import Modelo.ConsultasUsers;
+import Modelo.Libro;
 import Modelo.Usuario;
 import Vista.AgregarLibro;
 import Vista.Informacion;
@@ -20,8 +22,10 @@ public class Main {
         NuevoUsuario vistanUsuario= new NuevoUsuario();
         LogIn vistaLogIn= new LogIn();
         ConsultasUsers consulta= new ConsultasUsers();
+        ConsultasLibros consultalibro= new ConsultasLibros();
+        Libro libro= new Libro();
         
-        Control_Login control= new Control_Login(vistaLogIn,usu,vistanUsuario,consulta,vistamenu,vistainfo,vistaALibro);
+        ControlGeneral control= new ControlGeneral(vistaLogIn,usu,vistanUsuario,consulta,vistamenu,vistainfo,vistaALibro,consultalibro,libro);
         control.iniciar();
         
     }

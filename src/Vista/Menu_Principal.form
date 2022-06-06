@@ -37,18 +37,6 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="MasActionPerformed"/>
           </Events>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="Nuevo_Usuario">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Nuevo Usuario"/>
-                <Property name="toolTipText" type="java.lang.String" value="Nuevo inicio de sesi&#xf3;n"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Nuevo_UsuarioActionPerformed"/>
-              </Events>
-              <AuxValues>
-                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-              </AuxValues>
-            </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="Agregar_Libro">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Agregar Libro"/>

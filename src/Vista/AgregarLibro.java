@@ -30,7 +30,7 @@ public class AgregarLibro extends javax.swing.JFrame {
         titulo1 = new javax.swing.JLabel();
         titulo2 = new javax.swing.JLabel();
         txfNomLibro = new javax.swing.JTextField();
-        agregarlibro = new javax.swing.JButton();
+        actualizar = new javax.swing.JButton();
         labNomLibro = new javax.swing.JLabel();
         Regresar3 = new javax.swing.JButton();
         txfNomAutor = new javax.swing.JTextField();
@@ -40,7 +40,12 @@ public class AgregarLibro extends javax.swing.JFrame {
         txfId = new javax.swing.JTextField();
         labClave = new javax.swing.JLabel();
         txfCat = new javax.swing.JTextField();
+        labCant = new javax.swing.JLabel();
+        agregarlibro = new javax.swing.JButton();
+        buscar = new javax.swing.JButton();
+        eliminar = new javax.swing.JButton();
         labCat = new javax.swing.JLabel();
+        txfCantidad = new javax.swing.JTextField();
 
         setAlwaysOnTop(true);
 
@@ -57,10 +62,10 @@ public class AgregarLibro extends javax.swing.JFrame {
 
         txfNomLibro.setToolTipText("Titulo del LIbro");
 
-        agregarlibro.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        agregarlibro.setForeground(new java.awt.Color(0, 204, 204));
-        agregarlibro.setText("Agregar");
-        agregarlibro.setToolTipText("Agregar un Libro");
+        actualizar.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        actualizar.setForeground(new java.awt.Color(0, 204, 204));
+        actualizar.setText("Actualizar");
+        actualizar.setToolTipText("Actualizar libro");
 
         labNomLibro.setFont(new java.awt.Font("Sitka Text", 1, 18)); // NOI18N
         labNomLibro.setForeground(new java.awt.Color(0, 204, 204));
@@ -90,6 +95,25 @@ public class AgregarLibro extends javax.swing.JFrame {
 
         txfCat.setToolTipText("Categoria del Libro");
 
+        labCant.setFont(new java.awt.Font("Sitka Text", 1, 18)); // NOI18N
+        labCant.setForeground(new java.awt.Color(0, 204, 204));
+        labCant.setText("Cantidad:");
+
+        agregarlibro.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        agregarlibro.setForeground(new java.awt.Color(0, 204, 204));
+        agregarlibro.setText("Agregar");
+        agregarlibro.setToolTipText("Agregar un Libro");
+
+        buscar.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        buscar.setForeground(new java.awt.Color(0, 204, 204));
+        buscar.setText("Buscar");
+        buscar.setToolTipText("Buscar libro");
+
+        eliminar.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        eliminar.setForeground(new java.awt.Color(0, 204, 204));
+        eliminar.setText("Eliminar");
+        eliminar.setToolTipText("Eliminar libro");
+
         labCat.setFont(new java.awt.Font("Sitka Text", 1, 18)); // NOI18N
         labCat.setForeground(new java.awt.Color(0, 204, 204));
         labCat.setText("Categoria:");
@@ -98,29 +122,20 @@ public class AgregarLibro extends javax.swing.JFrame {
         panelAgregarL.setLayout(panelAgregarLLayout);
         panelAgregarLLayout.setHorizontalGroup(
             panelAgregarLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelAgregarLLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelAgregarLLayout.createSequentialGroup()
                 .addGroup(panelAgregarLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(panelAgregarLLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(labClave)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txfId, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelAgregarLLayout.createSequentialGroup()
                         .addGap(10, 10, 10)
+                        .addComponent(titulo1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(titulo2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(Regresar3))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelAgregarLLayout.createSequentialGroup()
                         .addGroup(panelAgregarLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(panelAgregarLLayout.createSequentialGroup()
-                                .addComponent(titulo1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(titulo2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
-                                .addComponent(Regresar3))
-                            .addGroup(panelAgregarLLayout.createSequentialGroup()
-                                .addGroup(panelAgregarLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(panelAgregarLLayout.createSequentialGroup()
-                                        .addComponent(labCat)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(txfCat, javax.swing.GroupLayout.DEFAULT_SIZE, 350, Short.MAX_VALUE))
+                                .addGap(19, 19, 19)
+                                .addGroup(panelAgregarLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(panelAgregarLLayout.createSequentialGroup()
                                         .addGroup(panelAgregarLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(labEditorial)
@@ -131,51 +146,79 @@ public class AgregarLibro extends javax.swing.JFrame {
                                                     .addComponent(labNomLibro))))
                                         .addGap(12, 12, 12)
                                         .addGroup(panelAgregarLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(txfNomAutor, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 350, Short.MAX_VALUE)
+                                            .addComponent(txfNomAutor, javax.swing.GroupLayout.Alignment.TRAILING)
                                             .addComponent(txfEditorial)
-                                            .addComponent(txfNomLibro))))
-                                .addGap(0, 0, Short.MAX_VALUE)))))
+                                            .addComponent(txfNomLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(panelAgregarLLayout.createSequentialGroup()
+                                        .addComponent(agregarlibro, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(actualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(panelAgregarLLayout.createSequentialGroup()
+                                .addGap(12, 12, 12)
+                                .addGroup(panelAgregarLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(panelAgregarLLayout.createSequentialGroup()
+                                        .addComponent(labCant)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(txfCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(panelAgregarLLayout.createSequentialGroup()
+                                        .addComponent(labCat)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(txfCat, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)))
                 .addGap(18, 18, 18))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelAgregarLLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(agregarlibro, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(191, 191, 191))
+                .addComponent(labClave)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txfId, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35))
         );
         panelAgregarLLayout.setVerticalGroup(
             panelAgregarLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelAgregarLLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(21, 21, 21)
                 .addGroup(panelAgregarLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelAgregarLLayout.createSequentialGroup()
+                    .addGroup(panelAgregarLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(titulo1, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(40, 40, 40))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelAgregarLLayout.createSequentialGroup()
-                        .addGroup(panelAgregarLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(Regresar3)
-                            .addComponent(titulo2))
-                        .addGap(31, 31, 31)))
+                        .addComponent(titulo2))
+                    .addComponent(Regresar3))
+                .addGap(23, 23, 23)
                 .addGroup(panelAgregarLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labClave)
                     .addComponent(txfId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(panelAgregarLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(panelAgregarLLayout.createSequentialGroup()
+                        .addGroup(panelAgregarLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(labNomLibro)
+                            .addComponent(txfNomLibro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(panelAgregarLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(labNomAutor)
+                            .addComponent(txfNomAutor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(panelAgregarLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(labEditorial)
+                            .addComponent(txfEditorial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(panelAgregarLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txfCat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labCat))
+                        .addGap(29, 29, 29))
+                    .addGroup(panelAgregarLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txfCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(labCant)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
                 .addGroup(panelAgregarLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labNomLibro)
-                    .addComponent(txfNomLibro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(panelAgregarLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labNomAutor)
-                    .addComponent(txfNomAutor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(panelAgregarLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labEditorial)
-                    .addComponent(txfEditorial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(panelAgregarLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labCat)
-                    .addComponent(txfCat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(agregarlibro)
-                .addContainerGap())
+                    .addComponent(actualizar)
+                    .addComponent(agregarlibro)
+                    .addComponent(buscar)
+                    .addComponent(eliminar))
+                .addGap(18, 18, 18))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -189,7 +232,9 @@ public class AgregarLibro extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelAgregarL, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(panelAgregarL, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
@@ -232,7 +277,11 @@ public class AgregarLibro extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton Regresar3;
+    public javax.swing.JButton actualizar;
     public javax.swing.JButton agregarlibro;
+    public javax.swing.JButton buscar;
+    public javax.swing.JButton eliminar;
+    public javax.swing.JLabel labCant;
     public javax.swing.JLabel labCat;
     public javax.swing.JLabel labClave;
     public javax.swing.JLabel labEditorial;
@@ -241,6 +290,7 @@ public class AgregarLibro extends javax.swing.JFrame {
     public javax.swing.JPanel panelAgregarL;
     public javax.swing.JLabel titulo1;
     public javax.swing.JLabel titulo2;
+    public javax.swing.JTextField txfCantidad;
     public javax.swing.JTextField txfCat;
     public javax.swing.JTextField txfEditorial;
     public javax.swing.JTextField txfId;

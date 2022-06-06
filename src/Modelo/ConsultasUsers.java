@@ -11,14 +11,13 @@ public class ConsultasUsers extends Conexion{
         PreparedStatement ps = null;
         Connection con = getConexion();
 
-        String sql = "INSERT INTO usuario(idUsuario, nombreUsuario, contraUsuario) VALUES(?,?)";
+        String sql = "INSERT INTO usuario(nombreUsuario, contraUsuario) VALUES(?,?)";
 
         try {
 
             ps = con.prepareStatement(sql);
-            ps.setString(1, String.valueOf(user.getId()));
-            ps.setString(2, user.getUser());
-            ps.setString(3, user.getPassword());
+            ps.setString(1, user.getUser());
+            ps.setString(2, user.getPassword());
             ps.execute();
             return true;
 
@@ -39,13 +38,13 @@ public class ConsultasUsers extends Conexion{
         ResultSet rs = null;
         Connection con = getConexion();
 
-        String sql = "SELECT * FROM usuario WHERE (nombreUsuario=?) AND (contraUsuario=?) ";
+        String sql = "SELECT * FROM usuario WHERE (nombreUsuario=?) AND (contraUsuario=?)" ;
 
         try {
 
             ps = con.prepareStatement(sql);
-            ps.setString(2, user.getUser());
-            ps.setString(3, user.getPassword());
+            ps.setString(1, user.getUser());
+            ps.setString(2, user.getPassword());
             rs = ps.executeQuery();
             
             if(rs.next())

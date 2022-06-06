@@ -36,7 +36,6 @@ public class Menu_Principal extends javax.swing.JFrame {
         General = new javax.swing.JMenu();
         Información = new javax.swing.JMenuItem();
         Mas = new javax.swing.JMenu();
-        Nuevo_Usuario = new javax.swing.JMenuItem();
         Agregar_Libro = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -125,15 +124,6 @@ public class Menu_Principal extends javax.swing.JFrame {
             }
         });
 
-        Nuevo_Usuario.setText("Nuevo Usuario");
-        Nuevo_Usuario.setToolTipText("Nuevo inicio de sesión");
-        Nuevo_Usuario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Nuevo_UsuarioActionPerformed(evt);
-            }
-        });
-        Mas.add(Nuevo_Usuario);
-
         Agregar_Libro.setText("Agregar Libro");
         Agregar_Libro.setToolTipText("Registrarse como cliente");
         Agregar_Libro.addActionListener(new java.awt.event.ActionListener() {
@@ -168,10 +158,6 @@ public class Menu_Principal extends javax.swing.JFrame {
     private void GeneralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GeneralActionPerformed
 
     }//GEN-LAST:event_GeneralActionPerformed
-
-    private void Nuevo_UsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Nuevo_UsuarioActionPerformed
-
-    }//GEN-LAST:event_Nuevo_UsuarioActionPerformed
 
     private void Agregar_LibroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Agregar_LibroActionPerformed
 
@@ -224,7 +210,6 @@ public class Menu_Principal extends javax.swing.JFrame {
     private javax.swing.JMenu Mas;
     public javax.swing.JTextField Mensaje;
     public javax.swing.JMenuBar Menu;
-    public javax.swing.JMenuItem Nuevo_Usuario;
     public javax.swing.JButton enviar;
     public javax.swing.JPanel escritorio;
     private javax.swing.JScrollPane jScrollPane1;
