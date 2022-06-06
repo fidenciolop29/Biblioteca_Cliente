@@ -134,6 +134,7 @@ public class ControlGeneral implements ActionListener {
              libro.setAutor(agg.txfNomAutor.getText());
              libro.setEditorial(agg.txfEditorial.getText());
              libro.setCategoria(agg.txfCat.getText());
+             libro.setCantidad(Integer.parseInt(agg.txfCantidad.getText()));
              if(consultalibro.registrar(libro)){
                  JOptionPane.showMessageDialog(null,"Resgistro exitoso");
                  limpiar3();
@@ -177,5 +178,6 @@ public class ControlGeneral implements ActionListener {
         agg.txfNomLibro.setText("");
         agg.txfEditorial.setText("");
         agg.txfCat.setText("");
+        agg.txfCantidad.setText("");
     }
 }

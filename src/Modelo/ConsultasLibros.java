@@ -11,7 +11,7 @@ public class ConsultasLibros extends Conexion {
         PreparedStatement ps = null;
         Connection con = getConexion();
 
-        String sql = "INSERT INTO libro(codigoLibro,nombreLibro, autorLibro, editorialLibro,categLibro) VALUES(?,?,?,?,?)";
+        String sql = "INSERT INTO libro(codigoLibro,nombreLibro, autorLibro, editorialLibro,categLibro, cantidadLibro) VALUES(?,?,?,?,?,?)";
 
         try {
 
@@ -21,6 +21,7 @@ public class ConsultasLibros extends Conexion {
             ps.setString(3, libro.getAutor());
             ps.setString(4, libro.getEditorial());
             ps.setString(5, libro.getCategoria());
+            ps.setString(6, String.valueOf(libro.getCantidad()));
             ps.execute();
             return true;
 
