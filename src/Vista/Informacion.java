@@ -34,6 +34,8 @@ public class Informacion extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
 
+        setTitle("Informacion");
+
         jPanelinfo.setBackground(new java.awt.Color(0, 204, 204));
         jPanelinfo.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 

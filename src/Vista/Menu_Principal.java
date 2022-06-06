@@ -32,6 +32,8 @@ public class Menu_Principal extends javax.swing.JFrame {
         Mensaje = new javax.swing.JTextField();
         enviar = new javax.swing.JButton();
         Conectar = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        menuOpciones = new javax.swing.JTextArea();
         Menu = new javax.swing.JMenuBar();
         General = new javax.swing.JMenu();
         Información = new javax.swing.JMenuItem();
@@ -54,11 +56,16 @@ public class Menu_Principal extends javax.swing.JFrame {
         enviar.setForeground(new java.awt.Color(0, 204, 204));
         enviar.setText("Enviar");
         enviar.setToolTipText("Enviar Mensaje");
-        enviar.setEnabled(false);
 
         Conectar.setBackground(new java.awt.Color(0, 204, 204));
         Conectar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Logo_BibliotecaListo.png"))); // NOI18N
         Conectar.setToolTipText("Tocame para iniciar un nuevo Chat");
+
+        menuOpciones.setColumns(20);
+        menuOpciones.setRows(5);
+        menuOpciones.setText("Ingrese una de estas opciones en la caja de texto para\nobtener informacion de parte del administrador de \ndistribuidores \n\n1.- Ver lista de distribuidores\n2.- Ver direccion de distribuidor\n3.- Ver numero de distribuidor\n4.- Ver oferta de libros de un distribuidor");
+        menuOpciones.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "MENU DE OPCIONES", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14))); // NOI18N
+        jScrollPane2.setViewportView(menuOpciones);
 
         javax.swing.GroupLayout escritorioLayout = new javax.swing.GroupLayout(escritorio);
         escritorio.setLayout(escritorioLayout);
@@ -67,36 +74,35 @@ public class Menu_Principal extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, escritorioLayout.createSequentialGroup()
                 .addGap(14, 14, 14)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(escritorioLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(enviar)
-                        .addGap(72, 72, 72))
-                    .addGroup(escritorioLayout.createSequentialGroup()
-                        .addGroup(escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(escritorioLayout.createSequentialGroup()
+                    .addComponent(jScrollPane2)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, escritorioLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(Conectar, javax.swing.GroupLayout.DEFAULT_SIZE, 316, Short.MAX_VALUE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, escritorioLayout.createSequentialGroup()
+                                .addComponent(Mensaje)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(Mensaje, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(escritorioLayout.createSequentialGroup()
-                                .addGap(29, 29, 29)
-                                .addComponent(Conectar, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                .addComponent(enviar)
+                                .addGap(6, 6, 6)))))
+                .addGap(16, 16, 16))
         );
         escritorioLayout.setVerticalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(escritorioLayout.createSequentialGroup()
-                .addGroup(escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, escritorioLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(escritorioLayout.createSequentialGroup()
-                        .addGap(15, 15, 15)
-                        .addComponent(Mensaje, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 171, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(enviar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(Mensaje)
+                            .addComponent(enviar, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
                         .addComponent(Conectar, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(escritorioLayout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 10, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1))
+                .addGap(31, 31, 31))
         );
 
         General.setText("General");
@@ -213,6 +219,8 @@ public class Menu_Principal extends javax.swing.JFrame {
     public javax.swing.JButton enviar;
     public javax.swing.JPanel escritorio;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     public javax.swing.JTextArea jTADialogo;
+    public javax.swing.JTextArea menuOpciones;
     // End of variables declaration//GEN-END:variables
 }

@@ -36,6 +36,8 @@ public class NuevoUsuario extends javax.swing.JFrame {
         labContra = new javax.swing.JLabel();
         Regresar2 = new javax.swing.JButton();
 
+        setTitle("Agregar Usuario");
+
         panelAgregarU.setBackground(new java.awt.Color(0, 204, 204));
         panelAgregarU.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 

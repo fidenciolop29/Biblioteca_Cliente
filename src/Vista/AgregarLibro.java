@@ -47,6 +47,7 @@ public class AgregarLibro extends javax.swing.JFrame {
         labCat = new javax.swing.JLabel();
         txfCantidad = new javax.swing.JTextField();
 
+        setTitle("Agregar Libro");
         setAlwaysOnTop(true);
 
         panelAgregarL.setBackground(new java.awt.Color(255, 255, 255));

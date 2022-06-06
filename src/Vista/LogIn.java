@@ -35,7 +35,7 @@ public class LogIn extends javax.swing.JFrame {
         labUusario_login = new javax.swing.JLabel();
         labContra_login = new javax.swing.JLabel();
         txfUsuario_login = new javax.swing.JTextField();
-        txfContra_login = new javax.swing.JTextField();
+        txfContra = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -77,20 +77,12 @@ public class LogIn extends javax.swing.JFrame {
                 .addGap(11, 11, 11)
                 .addGroup(panel_loginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panel_loginLayout.createSequentialGroup()
-                        .addComponent(titulo)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(titulo2)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(panel_loginLayout.createSequentialGroup()
                         .addGroup(panel_loginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_loginLayout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
-                                .addGroup(panel_loginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(panel_loginLayout.createSequentialGroup()
-                                        .addComponent(crearUsuario)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(ingresar_login))
-                                    .addComponent(txfContra_login, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(crearUsuario)
+                                .addGap(34, 34, 34)
+                                .addComponent(ingresar_login))
                             .addGroup(panel_loginLayout.createSequentialGroup()
                                 .addGroup(panel_loginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txfUsuario_login, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -100,10 +92,16 @@ public class LogIn extends javax.swing.JFrame {
                                     .addGroup(panel_loginLayout.createSequentialGroup()
                                         .addGap(42, 42, 42)
                                         .addComponent(labUusario_login)))
-                                .addGap(0, 0, Short.MAX_VALUE)))
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(txfContra))
                         .addGap(18, 18, 18)
                         .addComponent(logo_login, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(8, 8, 8))))
+                        .addGap(8, 8, 8))
+                    .addGroup(panel_loginLayout.createSequentialGroup()
+                        .addComponent(titulo)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(titulo2)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         panel_loginLayout.setVerticalGroup(
             panel_loginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -121,7 +119,7 @@ public class LogIn extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(labContra_login)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txfContra_login, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txfContra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(39, 39, 39)
                         .addGroup(panel_loginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(crearUsuario)
@@ -195,7 +193,7 @@ public class LogIn extends javax.swing.JFrame {
     public javax.swing.JPanel panel_login;
     public javax.swing.JLabel titulo;
     public javax.swing.JLabel titulo2;
-    public javax.swing.JTextField txfContra_login;
+    public javax.swing.JPasswordField txfContra;
     public javax.swing.JTextField txfUsuario_login;
     // End of variables declaration//GEN-END:variables
 }

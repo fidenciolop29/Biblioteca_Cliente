@@ -4,6 +4,8 @@ package Control;
 import Modelo.ConsultasLibros;
 import Modelo.ConsultasUsers;
 import Modelo.Libro;
+import Modelo.ModeloComunicacion;
+import Modelo.ThreadComunicacion;
 import Modelo.Usuario;
 import Vista.AgregarLibro;
 import Vista.Informacion;
@@ -29,11 +31,13 @@ public class ControlGeneral implements ActionListener {
    private  AgregarLibro agg;
    private  ConsultasLibros consultalibro;
    private  Libro libro;
+   private  ModeloComunicacion modc;
+   
    Socket socket = null;
    BufferedReader lee =null;
    PrintWriter escribe = null;
    
-    public ControlGeneral(LogIn login,Usuario user,NuevoUsuario usu,ConsultasUsers consulta, Menu_Principal menu, Informacion info, AgregarLibro agg,ConsultasLibros consultalibro, Libro libro){
+    public ControlGeneral(LogIn login,Usuario user,NuevoUsuario usu,ConsultasUsers consulta, Menu_Principal menu, Informacion info, AgregarLibro agg,ConsultasLibros consultalibro, Libro libro,ModeloComunicacion modc){
         this.login=login;
         this.login.ingresar_login.addActionListener(this);
         this.user=user;
@@ -58,13 +62,14 @@ public class ControlGeneral implements ActionListener {
         this.agg.eliminar.addActionListener(this);
         this.consultalibro=consultalibro;
         this.libro=libro;
+        this.modc=modc;
     }
     @Override
     public void actionPerformed(ActionEvent e) {
        
          if(e.getSource()==login.ingresar_login){
             user.setUser(login.txfUsuario_login.getText());
-            user.setPassword(login.txfContra_login.getText());
+            user.setPassword(login.txfContra.getText());
             if(consulta.buscar(user)){
                 JOptionPane.showMessageDialog(null, "Usuario aceptado");
                 menu.setVisible(true);
@@ -104,6 +109,7 @@ public class ControlGeneral implements ActionListener {
                 limpiar2();
             }
        }
+       ///////////////////////////////////////////////////////////////////////
          //redireccion del menu
          if(e.getSource()==menu.Información){
             info.setVisible(true);
@@ -130,19 +136,16 @@ public class ControlGeneral implements ActionListener {
             menu.setVisible(true);      
              }
          
-         //Mensajes
+         ///////////////////////////////////////////////////////////////
             if(e.getSource()==menu.Conectar){
+                iniciarComunicacion();
+            }
             
-                 Thread inicio = new Thread(new Runnable(){
-                  public void run(){
-                      try{
-                     socket=new Socket("LocalHost",1000);
-                     leer();
-                     escribir();
-                  }catch(Exception ex){
-                    ex.printStackTrace();}}
-        });}
-            
+            if(e.getSource()==menu.enviar){
+                modc.respuesta = menu.Mensaje.getText();
+                   System.out.println(modc.respuesta);
+            }
+       ////////////////////////////////////////////////////////////////////////    
          if(e.getSource()==agg.agregarlibro){
              libro.setId(agg.txfId.getText());
              libro.setTitulo(agg.txfNomLibro.getText());
@@ -158,7 +161,7 @@ public class ControlGeneral implements ActionListener {
                   limpiar3();
              }
          }
-         
+       /////////////////////////////////////////////////////////////////////////
         if(e.getSource()==agg.buscar){
              libro.setId(agg.txfId.getText());
             if(consultalibro.buscar(libro)){
@@ -174,7 +177,7 @@ public class ControlGeneral implements ActionListener {
             }
         }
         
-        
+        ///////////////////////////////////////////////////////////////////////
         if(e.getSource()==agg.actualizar){
              libro.setId(agg.txfId.getText());
              libro.setTitulo(agg.txfNomLibro.getText());
@@ -190,7 +193,7 @@ public class ControlGeneral implements ActionListener {
                   limpiar3();
              }
         }
-        
+        /////////////////////////////////////////////////////////
         if(e.getSource()==agg.eliminar){
              libro.setId(agg.txfId.getText());
              if(consultalibro.eliminar(libro)){
@@ -210,7 +213,7 @@ public class ControlGeneral implements ActionListener {
         login.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
     public void limpiar(){
-        login.txfContra_login.setText("");
+        login.txfContra.setText("");
         login.txfUsuario_login.setText("");
     }
      public void limpiar2(){
@@ -227,38 +230,7 @@ public class ControlGeneral implements ActionListener {
         agg.txfCantidad.setText("");
     }
     
-    public void escribir(){
-        Thread escritorHilo =new Thread (new Runnable(){
-        public void run(){ 
-        try{
-        escribe =new PrintWriter(socket.getOutputStream(),true);
-        menu.enviar.addActionListener(new ActionListener(){
-        public void actionPerformed(ActionEvent e){
-        String envio = null;
-        envio.equals(menu.Mensaje.getText());
-        escribe.println(envio);
-        menu.Mensaje.setText("");
-        } 
-        });}
-        catch(Exception ex){
-        ex.printStackTrace();}}
-        });
-       escritorHilo.start();
-    }
-    public void leer(){
-        Thread lectorHilo =new Thread (new Runnable(){
-        public void run(){    
-        try{
-        lee =new BufferedReader(new InputStreamReader(socket.getInputStream()));
-        while (true){
-         String recibido=lee.readLine();
-         menu.jTADialogo.append("Servidor:" + recibido);
-        }
-        }
-        catch(Exception ex){
-        ex.printStackTrace();}
-        }
-        });
-        lectorHilo.start();
+    public void iniciarComunicacion(){
+        (new ThreadComunicacion(menu,modc)).execute();
     }
 }

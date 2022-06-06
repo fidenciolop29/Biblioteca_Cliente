@@ -5,6 +5,7 @@ import Control.ControlGeneral;
 import Modelo.ConsultasLibros;
 import Modelo.ConsultasUsers;
 import Modelo.Libro;
+import Modelo.ModeloComunicacion;
 import Modelo.Usuario;
 import Vista.AgregarLibro;
 import Vista.Informacion;
@@ -24,8 +25,9 @@ public class Main {
         ConsultasUsers consulta= new ConsultasUsers();
         ConsultasLibros consultalibro= new ConsultasLibros();
         Libro libro= new Libro();
+        ModeloComunicacion modc= new ModeloComunicacion();
         
-        ControlGeneral control= new ControlGeneral(vistaLogIn,usu,vistanUsuario,consulta,vistamenu,vistainfo,vistaALibro,consultalibro,libro);
+        ControlGeneral control= new ControlGeneral(vistaLogIn,usu,vistanUsuario,consulta,vistamenu,vistainfo,vistaALibro,consultalibro,libro,modc);
         control.iniciar();
         
     }
