@@ -79,14 +79,6 @@ public class ControlGeneral implements ActionListener {
                 JOptionPane.showMessageDialog(null,"El usuario no existe");
                 limpiar();
             }
-         if(consulta.buscar(user)){
-                
-                 menu.setVisible(true);
-                 menu.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                 login.setVisible(false);
-            }else{
-                JOptionPane.showMessageDialog(null,"Este usuario no existe");
-            }
         }
         
         if(e.getSource()==login.crearUsuario){
