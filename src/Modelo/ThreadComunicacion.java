@@ -66,7 +66,7 @@ public class ThreadComunicacion extends SwingWorker<String, Object> {
                                     menu.jTADialogo.append("\nIngresaste: "+mod.respuesta);
                                     out.println(input);
                                     
-                                    //modeloVista.respuesta=null;
+                          
                                     
                                     if("exit".equals(input)){
                                         System.out.println("te haz desconectado");
@@ -75,32 +75,40 @@ public class ThreadComunicacion extends SwingWorker<String, Object> {
                                         break;
                                     }
                                     if("1".equals(input)){
-                                        menu.jTADialogo.append("\n>>>>Ingrese el codigo");
-                                        System.out.println("Ingrese el código");
-                                        System.out.print(">>: ");
-                                        
-                                        input = null;
+                                        menu.jTADialogo.append("\n>>>>Esperando server");
+                                        String res= in.nextLine();
+                                        menu.jTADialogo.append("\n"+res);
+                                    }else if("2".equals(input)){
+                                        menu.jTADialogo.append("\n>>>>Esperando server");
+                                        String res= in.nextLine();
+                                        menu.jTADialogo.append("\n"+res);
+                                    }else if("3".equals(input)){
+                                        menu.jTADialogo.append("\n>>>>Esperando server");
+                                        String res= in.nextLine();
+                                        menu.jTADialogo.append("\n"+res);
+                                    }else if( "4".equals(input)){
+                                        menu.jTADialogo.append("\n>>>>Ingrese el codigo del proveedor");
+                                        input=null;
                                         mod.respuesta=null;
                                         while(input==null){
-                                           System.out.println("");
-                                           input = mod.respuesta;
+                                            System.out.println("");
+                                            input=mod.respuesta;
+                                            
                                         }
-                                        //input = "001";
                                         out.println(input);
-
-                                        String res = in.nextLine();
+                                        
+                                        String res= in.nextLine();
                                         System.out.println("Server: "+res);
                                         menu.jTADialogo.append("\n"+res);
-                                        
+                                       
                                     }
-
                                     else{
                                         String res = in.nextLine();
                                         System.out.println("Echoed from server: " + res);
                                         menu.jTADialogo.append("\n"+res);
-                                        /*vc.txtArea.setText(res);
-                                        break;*/
+                                        
                                     }
+                                    
                                 }
 
                             }
