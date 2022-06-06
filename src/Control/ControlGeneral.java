@@ -45,6 +45,8 @@ public class ControlGeneral implements ActionListener {
         this.menu=menu;
         this.info=info;
         this.agg=agg;
+        this.menu.Conectar.addActionListener(this);
+        this.menu.enviar.addActionListener(this);
         this.menu.Información.addActionListener(this);
         this.menu.Agregar_Libro.addActionListener(this);
         this.info.Regresar1.addActionListener(this);
@@ -126,7 +128,6 @@ public class ControlGeneral implements ActionListener {
              }
          //Mensajes
             if(e.getSource()==menu.Conectar){
-            habilitar();
                  Thread inicio = new Thread(new Runnable(){
                   public void run(){
                       try{
@@ -135,7 +136,7 @@ public class ControlGeneral implements ActionListener {
                      escribir();
                   }catch(Exception ex){
                     ex.printStackTrace();}}
-        });
+        });}
          if(e.getSource()==agg.agregarlibro){
              libro.setId(Integer.parseInt(agg.txfId.getText()));
              libro.setTitulo(agg.txfNomLibro.getText());
@@ -162,8 +163,8 @@ public class ControlGeneral implements ActionListener {
             }
         }
     }
+
     
-    }
   
     public void iniciar(){
         login.setVisible(true);
@@ -177,9 +178,7 @@ public class ControlGeneral implements ActionListener {
         nusu.txfContra.setText("");
         nusu.txfUsuario.setText("");
     }
-     public void habilitar(){
-        menu.enviar.enable(true);
-    }
+   
     public void limpiar3(){
         agg.txfId.setText("");
         agg.txfNomAutor.setText("");
