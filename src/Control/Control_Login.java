@@ -29,6 +29,7 @@ public class Control_Login implements ActionListener {
         this.login.crearUsuario.addActionListener(this);
         this.nusu=usu;
         this.nusu.agregarUser.addActionListener(this);
+        this.nusu.Regresar2.addActionListener(this);
         this.consulta=consulta;
         this.menu=menu;
         this.info=info;
@@ -36,9 +37,10 @@ public class Control_Login implements ActionListener {
         this.menu.Información.addActionListener(this);
         this.menu.Agregar_Libro.addActionListener(this);
         this.menu.Nuevo_Usuario.addActionListener(this);
-        
-        
-       }
+        this.info.Regresar1.addActionListener(this);
+        this.agg.Regresar3.addActionListener(this);
+        this.agg.agregarlibro.addActionListener(this);
+  
     @Override
     public void actionPerformed(ActionEvent e) {
        
@@ -75,6 +77,7 @@ public class Control_Login implements ActionListener {
                 limpiar2();
             }
        }
+         //redireccion del menu
          if(e.getSource()==menu.Información){
             info.setVisible(true);
             login.setVisible(false);
@@ -87,6 +90,7 @@ public class Control_Login implements ActionListener {
             agg.setVisible(true);
             login.setVisible(false);
          }         
+         //controles de regreso de las ventanas
          if(e.getSource()==info.Regresar1){
             info.setVisible(false);
             login.setVisible(true);      
@@ -99,6 +103,17 @@ public class Control_Login implements ActionListener {
             agg.setVisible(false);
             login.setVisible(true);      
              }
+         //Mensajes
+         if(e.getSource()==menu.Conectar){
+            habilitar();
+                if("".equals(menu.Mensaje.getText())){ //por si el textField esta vacio
+                JOptionPane.showMessageDialog(null, "Aun no ingresa ningun mensaje");}
+            else{    
+                 //mandar mensaje
+                 menu.Mensaje.setText("");//limpia el txf despues de enviar
+                } 
+             }
+    }
     }
   
   
@@ -113,5 +128,8 @@ public class Control_Login implements ActionListener {
      public void limpiar2(){
         nusu.txfContra.setText("");
         nusu.txfUsuario.setText("");
+    }
+     public void habilitar(){
+        menu.enviar.enable(true);
     }
 }
