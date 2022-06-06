@@ -16,7 +16,7 @@ public class ConsultasLibros extends Conexion {
         try {
 
             ps = con.prepareStatement(sql);
-            ps.setString(1, String.valueOf(libro.getId()));
+            ps.setString(1, libro.getId());
             ps.setString(2, libro.getTitulo());
             ps.setString(3, libro.getAutor());
             ps.setString(4, libro.getEditorial());
@@ -52,7 +52,7 @@ public class ConsultasLibros extends Conexion {
             ps.setString(3, libro.getEditorial());
             ps.setString(4, libro.getCategoria());
             ps.setInt(5, libro.getCantidad());
-            ps.setInt(6, libro.getId());
+            ps.setString(6, libro.getId());
             ps.execute();
             return true;
 
@@ -72,12 +72,12 @@ public class ConsultasLibros extends Conexion {
         PreparedStatement ps = null;
         Connection con = getConexion();
 
-        String sql = "DELETE FROM libro WHERE codigoLibro= ";
+        String sql = "DELETE FROM libro WHERE codigoLibro=? ";
 
         try {
 
             ps = con.prepareStatement(sql);
-            ps.setInt(1, libro.getId());
+            ps.setString(1, libro.getId());
             ps.execute();
             return true;
 
@@ -108,7 +108,7 @@ public class ConsultasLibros extends Conexion {
             
             if(rs.next())
             {
-                libro.setId(Integer.parseInt(rs.getString("codigoLibro")));
+                libro.setId(rs.getString("codigoLibro"));
                 libro.setTitulo(rs.getString("nombreLibro"));
                 libro.setAutor(rs.getString("autorLibro"));
                 libro.setEditorial(rs.getString("editorialLibro"));

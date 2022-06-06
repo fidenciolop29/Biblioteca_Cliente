@@ -144,7 +144,7 @@ public class ControlGeneral implements ActionListener {
         });}
             
          if(e.getSource()==agg.agregarlibro){
-             libro.setId(Integer.parseInt(agg.txfId.getText()));
+             libro.setId(agg.txfId.getText());
              libro.setTitulo(agg.txfNomLibro.getText());
              libro.setAutor(agg.txfNomAutor.getText());
              libro.setEditorial(agg.txfEditorial.getText());
@@ -160,12 +160,13 @@ public class ControlGeneral implements ActionListener {
          }
          
         if(e.getSource()==agg.buscar){
-             libro.setId(Integer.parseInt(agg.txfId.getText()));
+             libro.setId(agg.txfId.getText());
             if(consultalibro.buscar(libro)){
                 agg.txfId.setText(String.valueOf(libro.getId()));
                 agg.txfNomLibro.setText(libro.getTitulo());
                 agg.txfNomAutor.setText(libro.getAutor());
                 agg.txfEditorial.setText(libro.getEditorial());
+                agg.txfCat.setText(libro.getCategoria());
                 agg.txfCantidad.setText(String.valueOf(libro.getCantidad()));
             }else{
                 JOptionPane.showMessageDialog(null,"No existe libro con este codigo");
@@ -175,7 +176,7 @@ public class ControlGeneral implements ActionListener {
         
         
         if(e.getSource()==agg.actualizar){
-             libro.setId(Integer.parseInt(agg.txfId.getText()));
+             libro.setId(agg.txfId.getText());
              libro.setTitulo(agg.txfNomLibro.getText());
              libro.setAutor(agg.txfNomAutor.getText());
              libro.setEditorial(agg.txfEditorial.getText());
@@ -191,7 +192,7 @@ public class ControlGeneral implements ActionListener {
         }
         
         if(e.getSource()==agg.eliminar){
-             libro.setId(Integer.parseInt(agg.txfId.getText()));
+             libro.setId(agg.txfId.getText());
              if(consultalibro.eliminar(libro)){
                 JOptionPane.showMessageDialog(null, "Registro eliminado");
                 limpiar3();
