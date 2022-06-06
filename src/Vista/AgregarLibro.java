@@ -42,7 +42,7 @@ public class AgregarLibro extends javax.swing.JFrame {
         txfCat = new javax.swing.JTextField();
         labCat = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setAlwaysOnTop(true);
 
         panelAgregarL.setBackground(new java.awt.Color(255, 255, 255));
         panelAgregarL.setBorder(javax.swing.BorderFactory.createMatteBorder(8, 8, 8, 8, new java.awt.Color(0, 204, 204)));

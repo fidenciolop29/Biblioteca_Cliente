@@ -5,7 +5,7 @@ import Modelo.ConsultasUsers;
 import Modelo.Usuario;
 import Vista.AgregarLibro;
 import Vista.Informacion;
-import Vista.LogIn_Biblioteca;
+import Vista.LogIn;
 import Vista.Menu_Principal;
 import Vista.NuevoUsuario;
 import java.awt.event.ActionEvent;
@@ -14,15 +14,15 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 public class Control_Login implements ActionListener {
-   private  LogIn_Biblioteca login;
+   private  LogIn login;
    private  NuevoUsuario nusu;
    private  Usuario user;
    private  ConsultasUsers consulta;
-   private Menu_Principal menu;
-   private Informacion info;
-   private AgregarLibro agg;
+   private  Menu_Principal menu;
+   private  Informacion info;
+   private  AgregarLibro agg;
    
-    public Control_Login(LogIn_Biblioteca login,Usuario user,NuevoUsuario usu,ConsultasUsers consulta,Menu_Principal menu,Informacion info,AgregarLibro agg){
+    public Control_Login(LogIn login,Usuario user,NuevoUsuario usu,ConsultasUsers consulta, Menu_Principal menu, Informacion info, AgregarLibro agg){
         this.login=login;
         this.login.ingresar_login.addActionListener(this);
         this.user=user;
@@ -31,15 +31,16 @@ public class Control_Login implements ActionListener {
         this.nusu.agregarUser.addActionListener(this);
         this.nusu.Regresar2.addActionListener(this);
         this.consulta=consulta;
+        this.menu=menu;
+        this.info=info;
+        this.agg=agg;
         this.menu.Información.addActionListener(this);
         this.menu.Agregar_Libro.addActionListener(this);
         this.menu.Nuevo_Usuario.addActionListener(this);
         this.info.Regresar1.addActionListener(this);
         this.agg.Regresar3.addActionListener(this);
         this.agg.agregarlibro.addActionListener(this);
-        
-        
-    }
+  
     @Override
     public void actionPerformed(ActionEvent e) {
        
@@ -48,14 +49,17 @@ public class Control_Login implements ActionListener {
             user.setPassword(login.txfContra_login.getText());
             if(consulta.buscar(user)){
                 
-                   //inicio de principal
+                 menu.setVisible(true);
+                 menu.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                 login.setVisible(false);
+                   
             }else{
                 JOptionPane.showMessageDialog(null,"Este usuario no existe");
             }
         }
         
         if(e.getSource()==login.crearUsuario){
-            iniciar2();
+            nusu.setVisible(true);
             login.setVisible(false);
         }
          if(e.getSource()==nusu.agregarUser){
@@ -65,7 +69,7 @@ public class Control_Login implements ActionListener {
             {
                 JOptionPane.showMessageDialog(null, "registro guardado");
                 limpiar2();
-                iniciar2();
+                login.setVisible(true);
                 nusu.setVisible(false);
             }
             else{
@@ -110,15 +114,12 @@ public class Control_Login implements ActionListener {
                 } 
              }
     }
+    }
   
   
     public void iniciar(){
         login.setVisible(true);
         login.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    }
-    public void iniciar2(){
-        nusu.setVisible(true);
-        nusu.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
     public void limpiar(){
         login.txfContra_login.setText("");
