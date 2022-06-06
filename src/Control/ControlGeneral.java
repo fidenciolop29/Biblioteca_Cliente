@@ -33,9 +33,6 @@ public class ControlGeneral implements ActionListener {
    private  Libro libro;
    private  ModeloComunicacion modc;
    
-   Socket socket = null;
-   BufferedReader lee =null;
-   PrintWriter escribe = null;
    
     public ControlGeneral(LogIn login,Usuario user,NuevoUsuario usu,ConsultasUsers consulta, Menu_Principal menu, Informacion info, AgregarLibro agg,ConsultasLibros consultalibro, Libro libro,ModeloComunicacion modc){
         this.login=login;
@@ -135,7 +132,7 @@ public class ControlGeneral implements ActionListener {
             
             if(e.getSource()==menu.enviar){
                 modc.respuesta = menu.Mensaje.getText();
-                   System.out.println(modc.respuesta);
+                System.out.println(modc.respuesta);
             }
        ////////////////////////////////////////////////////////////////////////    
          if(e.getSource()==agg.agregarlibro){
