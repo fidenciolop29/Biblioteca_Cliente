@@ -4,6 +4,7 @@ package Modelo;
 import Vista.Menu_Principal;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.net.InetAddress;
 import java.net.Socket;
 import java.util.Scanner;
 import java.util.logging.Level;
@@ -27,7 +28,7 @@ public class ThreadComunicacion extends SwingWorker<String, Object> {
                     int contador;
                     public void run() {
                             String nombre="";
-                            final String HOST = "192.168.1.73";
+                            final String HOST = "201.111.32.199";
                             final int PORT = 1000;
                             int contador =0;
                             System.out.println("Client started.");
@@ -44,7 +45,7 @@ public class ThreadComunicacion extends SwingWorker<String, Object> {
                                 //preguntar por usaurio caso 1
                                 if(contador==0){
                                     System.out.println("Ingrese su usuario: ");
-                                    String input = "Emmanuel";
+                                    String input = InetAddress.getLocalHost()+"";
                                     menu.jTADialogo.append("\nUsuario ingresado: "+input);
                                     nombre = input;
                                     out.println(input);
